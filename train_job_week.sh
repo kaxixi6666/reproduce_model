@@ -35,7 +35,7 @@ echo "开始训练..."
 python -u train.py \
     --base_model "codellama/CodeLlama-7B-hf" \
     --data_path "Data/LLMtrainDataset.jsonl" \
-    --output_dir "LoraCodeLlama_7B" \
+    --output_dir "LoraCodeLlama_7B_h200_week" \
     --batch_size 32 \
     --micro_batch_size 2 \
     --num_epochs 10 \

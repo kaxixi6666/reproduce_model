@@ -7,7 +7,7 @@
 #SBATCH --time=04:00:00
 #SBATCH --mem=64G
 #SBATCH --output=/work/sisi-xi/c4rllama/logs/isgpu4h200_short_%j.log
-#SBATCH --error=/work/sisi-xi/c4rlongllama/logs/isgpu4h200_short_%j.err
+#SBATCH --error=/work/sisi-xi/c4rllama/logs/isgpu4h200_short_%j.err
 
 # 定义一个函数：当脚本退出时执行
 cleanup() {
@@ -35,7 +35,7 @@ echo "开始训练..."
 python -u train.py \
     --base_model "codellama/CodeLlama-7B-hf" \
     --data_path "Data/LLMtrainDataset.jsonl" \
-    --output_dir "LoraCodeLlama_7B" \
+    --output_dir "LoraCodeLlama_7B_h200_short" \
     --batch_size 32 \
     --micro_batch_size 2 \
     --num_epochs 10 \

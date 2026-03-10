@@ -1,13 +1,13 @@
 #!/bin/bash
 #SBATCH --job-name=c4r_long
-#SBATCH --partition=gpu_long
+#SBATCH --partition=isgpu4h200_long
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
 #SBATCH --time=72:00:00
 #SBATCH --mem=64G
-#SBATCH --output=/work/sisi-xi/c4rllama/logs/long_%j.log
-#SBATCH --error=/work/sisi-xi/c4rllama/logs/long_%j.err
+#SBATCH --output=/work/sisi-xi/c4rllama/logs/h200_long_%j.log
+#SBATCH --error=/work/sisi-xi/c4rllama/logs/h200_long_%j.err
 
 # 定义一个函数：当脚本退出时执行
 cleanup() {
@@ -35,7 +35,7 @@ echo "开始训练..."
 python -u train.py \
     --base_model "codellama/CodeLlama-7B-hf" \
     --data_path "Data/LLMtrainDataset.jsonl" \
-    --output_dir "LoraCodeLlama_7B" \
+    --output_dir "LoraCodeLlama_7B_h200_long" \
     --batch_size 32 \
     --micro_batch_size 2 \
     --num_epochs 10 \
