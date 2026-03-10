@@ -1,13 +1,13 @@
 #!/bin/bash
-#SBATCH --job-name=c4r_long
-#SBATCH --partition=isgpu4h200_week
+#SBATCH --job-name=c4r_isgpu4h200_short
+#SBATCH --partition=isgpu4h200_short
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=8
-#SBATCH --time=72:00:00
+#SBATCH --time=04:00:00
 #SBATCH --mem=64G
-#SBATCH --output=/work/sisi-xi/c4rllama/logs/long_%j.log
-#SBATCH --error=/work/sisi-xi/c4rllama/logs/long_%j.err
+#SBATCH --output=/work/sisi-xi/c4rllama/logs/isgpu4h200_short_%j.log
+#SBATCH --error=/work/sisi-xi/c4rlongllama/logs/isgpu4h200_short_%j.err
 
 # 定义一个函数：当脚本退出时执行
 cleanup() {
